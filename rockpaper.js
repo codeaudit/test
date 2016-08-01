@@ -12,31 +12,22 @@ function checkWinner( m, c ){
 	var r = "tie";
 	if( c === m ) r = "tie";
 
+	r = "lose";
 	if( m === 0) {
 		if( c == 1 ) { r= "win"};
-		if( c == 2 ) { r= "lose"};
 		if( c == 3 ) { r= "win"};
-		if( c == 4 ) { r= "lose"};
 	} else if(m === 1){
-        if( c == 0 ) { r= "lose"};
 		if( c == 2 ) { r= "win"};
 		if( c == 3 ) { r= "win"};
-		if( c == 4 ) { r= "lose"};
 	} else if(m === 2){
-        if( c == 0 ) { r= "lose"};
 		if( c == 1 ) { r= "win"};
-		if( c == 3 ) { r= "lose"};
 		if( c == 4 ) { r= "win"};
 	} else if(m === 3){
-        if( c == 0 ) { r= "lose"};
-		if( c == 1 ) { r= "lose"};
 		if( c == 2 ) { r= "win"};
 		if( c == 4 ) { r= "win"};
 	} else if(m === 4){
         if( c == 0 ) { r= "win"};
 		if( c == 1 ) { r= "win"};
-		if( c == 2 ) { r= "lose"};
-		if( c == 3 ) { r= "lose"};
 	}
     return r;
 }
@@ -55,19 +46,6 @@ if( moveName.indexOf(move) == -1 ){
 	result = checkWinner(moveName.indexOf(move) , counter);
 }
 
-//if( move === "rock"){
-  
-//} else if( move === "scissors"){
-//   result = checkWinner(1, counter);
-//} else if( move === "paper"){
-//   result = checkWinner(2, counter);
-//} else if( move === "lizard"){
-//   result = checkWinner(3, counter);
-//} else if( move === "spock"){
-//   result = checkWinner(4, counter);
-//} else {
-//   result = "Invalid move!";
-//}
 
 if( result == "tie"  ||  result == "Invalid move!") {
    alert("machine moved " + moveName[counter] + " tie!");
