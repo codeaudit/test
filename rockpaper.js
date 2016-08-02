@@ -1,4 +1,4 @@
-
+// comment
 
 var result = "You won!";
 
@@ -10,7 +10,10 @@ var result = "You won!";
 
 function checkWinner( m, c ){
 	var r = "tie";
-	if( c === m ) r = "tie";
+	if( c === m ) {
+		r = "tie";
+        return r;
+	}
 
 	r = "lose";
 	if( m === 0) {
