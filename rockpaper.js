@@ -35,10 +35,11 @@ function checkWinner( m, c ){
     return r;
 }
 
+function play(){
 
 var end = false;
-while( !end ){
-var move = prompt( "Enter your move:");
+//while( !end ){
+var move = addPrompt( "Enter your move:");
 
 var moveName = ["rock","scissors","paper","lizard","spock"];
 var counter = (Math.round( Math.random() * 5) ) % 5;
@@ -51,10 +52,10 @@ if( moveName.indexOf(move) == -1 ){
 
 
 if( result == "tie"  ||  result == "Invalid move!") {
-   alert("machine moved " + moveName[counter] + " tie!");
+   addAlert("machine moved " + moveName[counter] + " tie!");
    end = false;
 } else {
-   var again = prompt("machine moved " + moveName[counter] +", you " + result + "! Play again?");
+   var again = addPrompt("machine moved " + moveName[counter] +", you " + result + "! Play again?");
    if( again === "y")
        end = false;
    else
@@ -62,4 +63,42 @@ if( result == "tie"  ||  result == "Invalid move!") {
 }
    
 }
+//}
 
+
+
+function addPrompt(str)
+{
+	var e = document.createElement("input");
+	//e.innerHTML = str + ' <input type="input"/><br/>';
+    e.setAttribute("type","text");
+	
+	document.getElementById("prompts").appendChild(e);
+
+	
+
+    e.onkeydown = function(evt) {
+    if (evt.key === "Enter") {
+        var human = e.value;
+        if (human === 'r' || human === 'p' || human === 's') {
+            addAlert(human);
+        }
+    }
+    }
+
+};
+
+
+function addAlert(str)
+{
+	var e = document.createElement("span");
+	e.setAttribute("class","alert_class")
+	e.innerHTML = str;
+    
+	
+	//document.getElementById("prompts").appendChild(e);
+
+	document.getElementById("prompts").appendChild(e);
+}
+
+addPrompt("Enter");
