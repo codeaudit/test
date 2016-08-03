@@ -48,7 +48,7 @@ function loadDoc(url) {
 								       '" data-lightbox="image-1" data-title="' +
 								       content[i].description  + 
 								       '">' +
-								       '<img ' + 
+								       '<img class="img-thumbnail"' + 
 								       	    ' id="id' + i  + '" ' +
 								            'src="' + 
 								            'http://localhost:8080' + "/images/" +
